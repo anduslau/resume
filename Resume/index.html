@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andus Lau - ERP Systems Architect & Data Analytics Leader</title>
+    <title>Andus Lau — ERP Architect & AI Systems Specialist</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,24 +14,27 @@
         }
 
         :root {
-            --primary-color: #1e3a5f;
-            --secondary-color: #2c5282;
-            --accent-color: #3182ce;
-            --gold: #d4af37;
-            --silver: #c0c0c0;
-            --bronze: #cd7f32;
-            --text-dark: #2d3748;
-            --text-light: #718096;
-            --bg-light: #f7fafc;
-            --white: #ffffff;
-            --border: #e2e8f0;
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #161616;
+            --bg-hover: #1c1c1c;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --border: #27272a;
+            --success: #22c55e;
+            --gradient-start: #3b82f6;
+            --gradient-end: #8b5cf6;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
+            overflow-x: hidden;
         }
 
         /* Navigation */
@@ -37,8 +42,8 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
             padding: 1rem 0;
@@ -55,8 +60,11 @@
 
         .logo {
             font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links {
@@ -67,481 +75,408 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--text-secondary);
             font-weight: 500;
+            font-size: 0.9rem;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--accent-color);
+            color: var(--text-primary);
         }
 
         /* Hero Section */
         .hero {
-            margin-top: 80px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--white);
-            padding: 6rem 2rem;
-            text-align: center;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 4rem;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(-30px, -30px) rotate(180deg); }
+            background: radial-gradient(ellipse at top, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
         }
 
         .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero-badge span {
+            color: var(--accent);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        .hero .title {
-            font-size: 1.5rem;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
             margin-bottom: 1.5rem;
-            opacity: 0.95;
-            font-weight: 300;
+            letter-spacing: -0.02em;
         }
 
-        .hero-tagline {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            font-style: italic;
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .hero .contact-info {
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
             display: flex;
+            gap: 1rem;
             justify-content: center;
-            gap: 2rem;
             flex-wrap: wrap;
-            margin-top: 2rem;
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
             font-size: 0.95rem;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: transform 0.3s;
-        }
-
-        .contact-item:hover {
+        .btn-primary:hover {
             transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
         }
 
-        .contact-item svg {
-            width: 20px;
-            height: 20px;
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            font-size: 0.95rem;
         }
 
-        /* Sections */
+        .btn-secondary:hover {
+            background: var(--bg-card);
+            border-color: var(--text-secondary);
+        }
+
+        /* Section Styles */
         section {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
 
-        .section-title {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 2rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid var(--accent-color);
-            display: inline-block;
-        }
-
-        /* About */
-        .about {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 3rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            margin-bottom: 3rem;
-        }
-
-        .about p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-dark);
-        }
-
-        .highlight {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        /* Interactive Dashboard */
-        .dashboard-container {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 3rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            margin-bottom: 3rem;
-            border: 1px solid var(--border);
-        }
-
-        .dashboard-header {
+        .section-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .dashboard-header h3 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+        .section-label {
+            display: inline-block;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.375rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .dashboard-header p {
-            color: var(--text-light);
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
         }
 
-        /* System Integration Map */
-        .system-map-wrapper {
-            position: relative;
-            margin-bottom: 2rem;
-        }
-
-        .system-map {
-            position: relative;
-            height: 600px;
-            background: linear-gradient(135deg, #f0f4f8 0%, #e6eef7 100%);
-            border-radius: 12px;
-            padding: 2rem;
-            overflow: hidden;
-            max-width: 900px;
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        .central-hub {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 130px;
-            height: 130px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(49, 130, 206, 0.4);
-            z-index: 10;
-            cursor: pointer;
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .bento-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
             transition: all 0.3s;
-            border: 4px solid white;
-            font-size: 0.85rem;
-            line-height: 1.3;
-        }
-
-        .central-hub:hover {
-            transform: translate(-50%, -50%) scale(1.1);
-            box-shadow: 0 15px 40px rgba(49, 130, 206, 0.6);
-        }
-
-        .satellite-system {
-            position: absolute;
-            width: 95px;
-            height: 95px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 3px solid var(--accent-color);
-            text-align: center;
-            padding: 0.4rem;
-            z-index: 5;
-        }
-
-        .satellite-system:hover, .satellite-system.active {
-            transform: scale(1.15);
-            background: var(--accent-color);
-            color: white;
-            z-index: 20;
-            box-shadow: 0 8px 20px rgba(49, 130, 206, 0.4);
-        }
-
-        .satellite-system.active {
-            background: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-
-        /* 8-position layout - evenly distributed at 45° intervals */
-        /* Radius 200px from center, 95px diameter circles */
-        /* Center is at 50%, 50% */
-        
-        .system-pos-1 { /* Jonas - Top (0°) */
-            top: calc(50% - 200px - 47.5px);
-            left: calc(50% - 47.5px);
-        }
-        
-        .system-pos-2 { /* HubSpot - Top Right (45°) */
-            top: calc(50% - 141px - 47.5px);
-            right: calc(50% - 141px - 47.5px);
-        }
-        
-        .system-pos-3 { /* Samsara - Right (90°) */
-            top: calc(50% - 47.5px);
-            right: calc(50% - 200px - 47.5px);
-        }
-        
-        .system-pos-4 { /* TRUX - Bottom Right (135°) */
-            bottom: calc(50% - 141px - 47.5px);
-            right: calc(50% - 141px - 47.5px);
-        }
-        
-        .system-pos-5 { /* Fleet.io - Bottom (180°) */
-            bottom: calc(50% - 200px - 47.5px);
-            left: calc(50% - 47.5px);
-        }
-        
-        .system-pos-6 { /* NYLUS - Bottom Left (225°) */
-            bottom: calc(50% - 141px - 47.5px);
-            left: calc(50% - 141px - 47.5px);
-        }
-        
-        .system-pos-7 { /* Dayforce - Left (270°) */
-            top: calc(50% - 47.5px);
-            left: calc(50% - 200px - 47.5px);
-        }
-        
-        .system-pos-8 { /* Copilot - Top Left (315°) */
-            top: calc(50% - 141px - 47.5px);
-            left: calc(50% - 141px - 47.5px);
-        }
-
-        /* Info Panel */
-        .system-info-panel {
-            background: white;
-            border-radius: 12px;
-            border-left: 5px solid var(--accent-color);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin-top: 2rem;
+            position: relative;
             overflow: hidden;
-            max-height: 0;
-            opacity: 0;
-            transition: all 0.4s ease-out;
         }
 
-        .system-info-panel.show {
-            max-height: 900px;
-            opacity: 1;
-            margin-top: 2rem;
+        .bento-card:hover {
+            border-color: var(--text-secondary);
+            transform: translateY(-4px);
         }
 
-        .info-header {
-            background: linear-gradient(135deg, #f8fafc, #edf2f7);
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--border);
+        .bento-card.large {
+            grid-column: span 2;
+        }
+
+        .bento-card.full {
+            grid-column: span 3;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-hover);
+            border-radius: 12px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-        }
-
-        .info-header h3 {
-            color: var(--primary-color);
-            font-size: 1.3rem;
-            margin: 0;
-        }
-
-        .info-category {
-            display: inline-block;
-            background: var(--accent-color);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-left: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
+            justify-content: center;
             font-size: 1.5rem;
-            color: var(--text-light);
-            cursor: pointer;
-            padding: 0.5rem;
-            line-height: 1;
-            transition: color 0.3s;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
         }
 
-        .close-btn:hover {
-            color: var(--primary-color);
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
         }
 
-        .info-content {
-            padding: 1.5rem;
-        }
-
-        .info-section {
+        .card-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
             margin-bottom: 1.5rem;
         }
 
-        .info-section:last-child {
-            margin-bottom: 0;
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
-        .info-section h4 {
-            color: var(--secondary-color);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+        .tech-tag {
+            background: var(--bg-hover);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
         }
 
-        .info-section p {
-            color: var(--text-dark);
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        .info-section ul {
-            margin-left: 1.2rem;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-        }
-
-        .info-section li {
-            margin-bottom: 0.4rem;
-            line-height: 1.5;
-        }
-
-        .info-section .sub-list {
-            margin-top: 0.5rem;
-            margin-left: 1.5rem;
-            list-style-type: circle;
-        }
-
-        .info-section .sub-list li {
-            margin-bottom: 0.2rem;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .info-note {
-            background: #fffbeb;
-            border-left: 3px solid #f59e0b;
-            padding: 0.75rem;
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-            color: #92400e;
-            border-radius: 0 4px 4px 0;
-        }
-
-        /* Stats Counter */
-        .stats-grid {
+        /* Metrics */
+        .metrics-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
 
-        .stat-card {
-            background: linear-gradient(135deg, var(--white), #f0f4f8);
-            padding: 1.5rem;
-            border-radius: 12px;
+        .metric-item {
             text-align: center;
-            border: 2px solid var(--border);
-            transition: all 0.3s;
-            cursor: pointer;
+            padding: 1.5rem;
+            background: var(--bg-hover);
+            border-radius: 12px;
+            border: 1px solid var(--border);
         }
 
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-            box-shadow: 0 10px 20px rgba(49, 130, 206, 0.15);
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
         }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
-            display: block;
-            line-height: 1;
-            margin-bottom: 0.5rem;
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .stat-label {
-            color: var(--text-light);
-            font-size: 0.9rem;
+        /* Impact Section */
+        .impact-card {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .impact-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--success);
             font-weight: 600;
         }
 
-        /* Skills */
-        .skills-grid {
+        .impact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .impact-stat {
+            text-align: center;
+        }
+
+        .impact-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--success);
+            line-height: 1;
+        }
+
+        .impact-desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Architecture Diagram */
+        .arch-container {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+        }
+
+        .arch-layer {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 0.75rem 0;
+            flex-wrap: wrap;
+        }
+
+        .arch-box {
+            background: var(--bg-hover);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            color: var(--text-secondary);
+        }
+
+        .arch-box.highlight {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .arch-arrow {
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        /* ERP Systems */
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
             margin-top: 2rem;
         }
 
-        .skill-category {
-            background: var(--white);
-            padding: 2rem;
+        .system-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .skill-category h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+        .system-card:hover {
+            border-color: var(--accent);
+            background: var(--bg-hover);
         }
 
-        .skill-list {
-            list-style: none;
+        .system-card.active {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.1);
         }
 
-        .skill-list li {
-            padding: 0.5rem 0;
-            color: var(--text-dark);
-            position: relative;
-            padding-left: 1.5rem;
+        .system-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-hover);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.25rem;
+            border: 1px solid var(--border);
         }
 
-        .skill-list li:before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
+        .system-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .system-category {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .system-detail {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .system-detail.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Experience Timeline */
@@ -550,320 +485,272 @@
             padding-left: 2rem;
         }
 
-        .timeline:before {
+        .timeline::before {
             content: '';
             position: absolute;
             left: 0;
             top: 0;
             bottom: 0;
             width: 2px;
-            background: var(--accent-color);
+            background: var(--border);
         }
 
-        .experience-item {
+        .timeline-item {
             position: relative;
             margin-bottom: 3rem;
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            margin-left: 1rem;
-            transition: all 0.3s;
+            padding-left: 2rem;
         }
 
-        .experience-item:hover {
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            transform: translateX(5px);
-        }
-
-        .experience-item:before {
+        .timeline-item::before {
             content: '';
             position: absolute;
-            left: -1.4rem;
-            top: 2rem;
+            left: -2rem;
+            top: 0.5rem;
             width: 12px;
             height: 12px;
-            background: var(--accent-color);
+            background: var(--bg-primary);
+            border: 2px solid var(--accent);
             border-radius: 50%;
-            border: 3px solid var(--white);
         }
 
-        .job-header {
-            margin-bottom: 1.5rem;
+        .timeline-header {
+            margin-bottom: 1rem;
         }
 
-        .job-title {
-            font-size: 1.4rem;
-            color: var(--primary-color);
+        .timeline-role {
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .company {
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            font-weight: 600;
             margin-bottom: 0.25rem;
         }
 
-        .date {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            font-weight: 500;
+        .timeline-company {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
         }
 
-        .achievements {
+        .timeline-date {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .timeline-content ul {
             list-style: none;
+            space-y: 0.75rem;
         }
 
-        .achievements li {
+        .timeline-content li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
             margin-bottom: 0.75rem;
             padding-left: 1.5rem;
             position: relative;
-            line-height: 1.6;
         }
 
-        .achievements li:before {
+        .timeline-content li::before {
             content: "→";
             position: absolute;
             left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
+            color: var(--accent);
         }
 
-        /* Honors & Awards Section */
-        .awards-container {
+        .highlight {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Awards */
+        .awards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
 
         .award-card {
-            background: var(--white);
-            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
             padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border-top: 4px solid var(--gold);
             transition: all 0.3s;
         }
 
         .award-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-        }
-
-        .award-card.silver {
-            border-top-color: var(--silver);
+            border-color: var(--border);
+            background: var(--bg-hover);
         }
 
         .award-header {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .medal-icon {
+        .award-icon {
             font-size: 2.5rem;
         }
 
         .award-title {
-            font-size: 1.2rem;
-            color: var(--primary-color);
+            font-size: 1.1rem;
             font-weight: 700;
-            margin: 0;
+            margin-bottom: 0.25rem;
         }
 
-        .award-issuer {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            font-weight: 500;
+        .award-org {
+            color: var(--text-muted);
+            font-size: 0.875rem;
         }
 
-        .award-list {
+        .achievement-list {
             list-style: none;
-            margin-top: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .award-list li {
-            padding: 0.4rem 0;
+        .achievement-list li {
+            padding: 0.5rem 0;
             padding-left: 1.5rem;
             position: relative;
-            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
-        .award-list li:before {
+        .achievement-list li::before {
             content: "🏆";
             position: absolute;
             left: 0;
             font-size: 0.8rem;
         }
 
-        .article-links {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
+        .link-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
         }
 
-        .article-links h4 {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .article-links a {
-            display: inline-block;
-            color: var(--accent-color);
+        .link-list a {
+            color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9rem;
-            margin-right: 1rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
             transition: color 0.3s;
         }
 
-        .article-links a:hover {
-            color: var(--primary-color);
-            text-decoration: underline;
+        .link-list a:hover {
+            color: var(--accent);
         }
 
         /* Education */
-        .education-card {
-            background: var(--white);
+        .edu-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid var(--secondary-color);
-            margin-bottom: 2rem;
         }
 
-        .degree {
-            font-size: 1.3rem;
-            color: var(--primary-color);
+        .edu-degree {
+            font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
-        .school {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
+        .edu-school {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
         }
 
-        .edu-details {
-            color: var(--text-light);
-            font-size: 0.95rem;
+        .edu-date {
+            color: var(--text-muted);
+            font-size: 0.875rem;
         }
 
-        .languages {
+        .edu-meta {
             margin-top: 1.5rem;
             padding-top: 1.5rem;
             border-top: 1px solid var(--border);
-        }
-
-        .languages strong {
-            color: var(--primary-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
         /* Footer */
         footer {
-            background: var(--primary-color);
-            color: var(--white);
-            text-align: center;
+            border-top: 1px solid var(--border);
             padding: 3rem 2rem;
-            margin-top: 4rem;
+            text-align: center;
         }
 
         .footer-content {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        .footer-contact {
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-contact a {
-            color: var(--white);
+        .footer-email {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
             text-decoration: none;
-            font-size: 1.1rem;
-            opacity: 0.9;
-            transition: opacity 0.3s;
+            margin-bottom: 1rem;
+            display: inline-block;
         }
 
-        .footer-contact a:hover {
-            opacity: 1;
-            text-decoration: underline;
+        .footer-email:hover {
+            color: var(--accent);
         }
 
-        .copyright {
-            opacity: 0.7;
-            font-size: 0.9rem;
+        .footer-location {
+            color: var(--text-muted);
+            font-size: 0.875rem;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
+        @media (max-width: 968px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
             }
-
-            .hero .title {
-                font-size: 1.2rem;
+            
+            .bento-card.large,
+            .bento-card.full {
+                grid-column: span 1;
             }
-
+            
+            .metrics-row,
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .systems-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .nav-links {
                 display: none;
             }
+        }
 
-            .skills-grid, .awards-container {
+        @media (max-width: 640px) {
+            .metrics-row,
+            .impact-grid {
                 grid-template-columns: 1fr;
             }
-
-            .timeline {
-                padding-left: 1rem;
+            
+            .systems-grid {
+                grid-template-columns: 1fr;
             }
-
-            .experience-item {
-                margin-left: 0.5rem;
+            
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
             }
-
-            .system-map {
-                height: 500px;
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
             }
-
-            .satellite-system {
-                width: 75px;
-                height: 75px;
-                font-size: 0.6rem;
-            }
-
-            /* Mobile positioning - tighter radius (150px) */
-            .system-pos-1 { top: calc(50% - 150px - 37.5px); left: calc(50% - 37.5px); }
-            .system-pos-2 { top: calc(50% - 106px - 37.5px); right: calc(50% - 106px - 37.5px); }
-            .system-pos-3 { top: calc(50% - 37.5px); right: calc(50% - 150px - 37.5px); }
-            .system-pos-4 { bottom: calc(50% - 106px - 37.5px); right: calc(50% - 106px - 37.5px); }
-            .system-pos-5 { bottom: calc(50% - 150px - 37.5px); left: calc(50% - 37.5px); }
-            .system-pos-6 { bottom: calc(50% - 106px - 37.5px); left: calc(50% - 106px - 37.5px); }
-            .system-pos-7 { top: calc(50% - 37.5px); left: calc(50% - 150px - 37.5px); }
-            .system-pos-8 { top: calc(50% - 106px - 37.5px); left: calc(50% - 106px - 37.5px); }
-
-            .central-hub {
-                width: 100px;
-                height: 100px;
-                font-size: 0.75rem;
-            }
-        }
-
-        /* Selection animation */
-        @keyframes selectPulse {
-            0% { box-shadow: 0 0 0 0 rgba(49, 130, 206, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(49, 130, 206, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(49, 130, 206, 0); }
-        }
-
-        .satellite-system.active {
-            animation: selectPulse 1s;
         }
     </style>
 </head>
@@ -874,12 +761,10 @@
         <div class="nav-container">
             <div class="logo">AL</div>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#dashboard">Systems</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#systems">Systems</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#awards">Awards</a></li>
-                <li><a href="#education">Education</a></li>
+                <li><a href="#awards">Achievements</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -888,296 +773,329 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Andus Lau</h1>
-            <div class="title">Manager, ERP Systems & Data Services</div>
-            <div class="hero-tagline">Former Team Canada Taekwondo Athlete | World Championships Competitor</div>
-            <p>ERP Architect | Financial Systems Specialist | Data Integration Expert</p>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    <span>East Gwillimbury, Ontario</span>
-                </div>
-                <div class="contact-item">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                    <span>(647) 993-9208</span>
-                </div>
-                <div class="contact-item">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                    <span>andusylau@gmail.com</span>
-                </div>
+            <div class="hero-badge">
+                <span>●</span> Available for opportunities
             </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">Professional Summary</h2>
-        <div class="about">
-            <p>
-                Results-driven <span class="highlight">ERP Systems and Data Services Manager</span> with extensive experience in financial analysis, business intelligence, and enterprise system integration. Proven track record of leading cross-functional teams to implement complex ERP solutions, consolidate data warehouses, and drive digital transformation initiatives. Expert in leveraging <span class="highlight">SQL, Power BI, AI technologies (Microsoft Copilot), and RPA</span> to optimize business processes and deliver actionable insights to senior leadership. 
+            <h1>ERP Architect &<br><span>AI Systems Specialist</span></h1>
+            <p class="hero-subtitle">
+                Building enterprise data ecosystems and intelligent automation. 
+                Former Team Canada Taekwondo athlete bringing discipline and precision 
+                to complex technical challenges.
             </p>
-            <br>
-            <p>
-                <span class="highlight">Former Team Canada Taekwondo athlete</span> who competed at the World Championships and World University Games (Universiade), bringing the same discipline, focus, and competitive drive to enterprise technology solutions. Demonstrated success in managing multi-system integrations including SAP, Jonas, HubSpot, Microsoft Copilot, and telematics platforms to enhance operational efficiency and financial performance.
-            </p>
-        </div>
-    </section>
-
-    <!-- Interactive Dashboard Section -->
-    <section id="dashboard" style="max-width: 1200px;">
-        <h2 class="section-title">ERP Systems Architecture</h2>
-        
-        <div class="dashboard-container">
-            <div class="dashboard-header">
-                <h3>Integrated Business Ecosystem</h3>
-                <p>Click any system to view detailed integration specifications and data architecture</p>
-            </div>
-
-            <div class="system-map-wrapper">
-                <div class="system-map" id="systemMap">
-                    <div class="central-hub" onclick="activateHub()">
-                        Central Data Warehouse
-                    </div>
-                    
-                    <div class="satellite-system system-pos-1" onclick="showSystemInfo('Jonas')" data-system="Jonas">
-                        Jonas ERP
-                    </div>
-                    <div class="satellite-system system-pos-2" onclick="showSystemInfo('HubSpot')" data-system="HubSpot">
-                        HubSpot CRM
-                    </div>
-                    <div class="satellite-system system-pos-3" onclick="showSystemInfo('Samsara')" data-system="Samsara">
-                        Samsara Telematics
-                    </div>
-                    <div class="satellite-system system-pos-4" onclick="showSystemInfo('Trux')" data-system="Trux">
-                        TRUX
-                    </div>
-                    <div class="satellite-system system-pos-5" onclick="showSystemInfo('Fleetio')" data-system="Fleetio">
-                        Fleet.io
-                    </div>
-                    <div class="satellite-system system-pos-6" onclick="showSystemInfo('NYLUS')" data-system="NYLUS">
-                        NYLUS
-                    </div>
-                    <div class="satellite-system system-pos-7" onclick="showSystemInfo('Dayforce')" data-system="Dayforce">
-                        Dayforce HCM
-                    </div>
-                    <div class="satellite-system system-pos-8" onclick="showSystemInfo('Copilot')" data-system="Copilot">
-                        Microsoft Copilot
-                    </div>
-                </div>
-
-                <!-- Info Panel -->
-                <div class="system-info-panel" id="infoPanel">
-                    <div class="info-header">
-                        <div>
-                            <h3 id="panelTitle">System Name</h3>
-                            <span class="info-category" id="panelCategory">Category</span>
-                        </div>
-                        <button class="close-btn" onclick="closePanel()">×</button>
-                    </div>
-                    <div class="info-content">
-                        <div class="info-section">
-                            <h4>What it does (general):</h4>
-                            <p id="panelDescription">Description text...</p>
-                        </div>
-                        <div class="info-section">
-                            <h4>Typical data captured & stored:</h4>
-                            <ul id="panelDataList">
-                                <!-- Dynamic content -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="stats-grid">
-                <div class="stat-card" onclick="animateCounter(this)">
-                    <span class="stat-number" data-target="8">0</span>
-                    <span class="stat-label">ERP Systems Integrated</span>
-                </div>
-                <div class="stat-card" onclick="animateCounter(this)">
-                    <span class="stat-number" data-target="8">0</span>
-                    <span class="stat-label">Years Analytics Experience</span>
-                </div>
-                <div class="stat-card" onclick="animateCounter(this)">
-                    <span class="stat-number" data-target="3">0</span>
-                    <span class="stat-label">x National Champion</span>
-                </div>
-                <div class="stat-card" onclick="animateCounter(this)">
-                    <span class="stat-number" data-target="32">0</span>
-                    <span class="stat-label">World Ranking Position</span>
-                </div>
+            <div class="hero-cta">
+                <a href="#projects" class="btn-primary">View Projects</a>
+                <a href="mailto:andusylau@gmail.com" class="btn-secondary">Get in Touch</a>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2 class="section-title">Core Competencies</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Data & Analytics</h3>
-                <ul class="skill-list">
-                    <li>SQL Server & SSMS</li>
-                    <li>Data Warehouse Architecture</li>
-                    <li>Power BI & Dashboard Development</li>
-                    <li>Power Query & ETL Processes</li>
-                    <li>Advanced Excel (PivotTables, VLOOKUP, Complex Functions)</li>
-                    <li>Microsoft Access & Management Reporter</li>
-                </ul>
-            </div>
-            
-            <div class="skill-category">
-                <h3>ERP & Business Systems</h3>
-                <ul class="skill-list">
-                    <li>SAP Implementation & Management</li>
-                    <li>Microsoft Dynamics CRM & Copilot</li>
-                    <li>Jonas Construction Software</li>
-                    <li>Trux & NYLUS Dispatch Systems</li>
-                    <li>HubSpot CRM Administration</li>
-                    <li>Fleet.io & Samsara Telematics</li>
-                </ul>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <div class="section-label">Technical Projects</div>
+            <h2 class="section-title">Production-Grade Systems</h2>
+            <p class="section-subtitle">Real-world implementations demonstrating expertise in AI orchestration, automation architecture, and enterprise integration.</p>
+        </div>
+
+        <div class="bento-grid">
+            <!-- AI Agent -->
+            <div class="bento-card large">
+                <div class="card-icon">🤖</div>
+                <h3 class="card-title">Ansidox — AI Research Assistant</h3>
+                <p class="card-description">
+                    Multi-agent workflow system with intent classification, session memory management, and automated knowledge base integration. 
+                    Features multi-stage approval workflows and smart home voice integration.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">n8n</span>
+                    <span class="tech-tag">Ollama</span>
+                    <span class="tech-tag">Mistral</span>
+                    <span class="tech-tag">Llama 3.2</span>
+                    <span class="tech-tag">Tavily API</span>
+                    <span class="tech-tag">Obsidian</span>
+                </div>
+                <div class="metrics-row" style="margin-top: 1.5rem;">
+                    <div class="metric-item">
+                        <div class="metric-value">50+</div>
+                        <div class="metric-label">Workflow Nodes</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">LLM Models</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">5</div>
+                        <div class="metric-label">APIs Integrated</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Local/Privacy</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="skill-category">
-                <h3>AI & Process Optimization</h3>
-                <ul class="skill-list">
-                    <li>Microsoft Copilot Implementation</li>
-                    <li>AI Integration Strategy</li>
-                    <li>Robotic Process Automation (RPA)</li>
-                    <li>Business Process Digitization</li>
-                    <li>SharePoint Administration</li>
-                    <li>Cash Conversion Cycle Analysis</li>
-                </ul>
+            <!-- Document Processing -->
+            <div class="bento-card">
+                <div class="card-icon">📄</div>
+                <h3 class="card-title">Document Intelligence Stack</h3>
+                <p class="card-description">
+                    Self-hosted paperless system with AI-powered metadata extraction, 
+                    automatic tagging, and GPU-accelerated OCR.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Redis</span>
+                    <span class="tech-tag">Ollama</span>
+                    <span class="tech-tag">Paperless-AI</span>
+                </div>
+                <div class="arch-container" style="margin-top: 1rem;">
+                    <div class="arch-layer">
+                        <div class="arch-box">Gmail</div>
+                        <div class="arch-box">Upload</div>
+                    </div>
+                    <div class="arch-arrow">↓</div>
+                    <div class="arch-layer">
+                        <div class="arch-box highlight">Paperless-ngx</div>
+                    </div>
+                    <div class="arch-arrow">↓</div>
+                    <div class="arch-layer">
+                        <div class="arch-box">AI Tagging</div>
+                        <div class="arch-box">OCR</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="skill-category">
-                <h3>Financial Expertise</h3>
-                <ul class="skill-list">
-                    <li>Budgeting & Forecasting</li>
-                    <li>KPI Development & Tracking</li>
-                    <li>Financial Reporting & Analysis</li>
-                    <li>Covenant Compliance Reporting</li>
-                    <li>Private Equity Data Support</li>
-                    <li>Corporate Performance Management</li>
-                </ul>
+            <!-- Business Intelligence -->
+            <div class="bento-card full">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                    <div>
+                        <div class="card-icon">📊</div>
+                        <h3 class="card-title">Enterprise BI Ecosystem</h3>
+                        <p class="card-description">
+                            Architected comprehensive reporting infrastructure enabling lean operations 
+                            across 30+ business units. Deliver real-time operational dashboards and 
+                            financial analytics to division presidents.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">Power Query</span>
+                            <span class="tech-tag">SSMS</span>
+                        </div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-header">
+                            <span>⚡</span>
+                            <span>Operational Excellence</span>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
+                            Technical solutions enabling timely decision-making across Infrastructure and Environmental divisions through automated reporting packages and self-service analytics.
+                        </p>
+                        <div class="impact-grid">
+                            <div class="impact-stat">
+                                <div class="impact-number">$400M+</div>
+                                <div class="impact-desc">Revenue Supported</div>
+                            </div>
+                            <div class="impact-stat">
+                                <div class="impact-number">30+</div>
+                                <div class="impact-desc">Business Units</div>
+                            </div>
+                            <div class="impact-stat">
+                                <div class="impact-number">2</div>
+                                <div class="impact-desc">Person Team</div>
+                            </div>
+                            <div class="impact-stat">
+                                <div class="impact-number">Daily</div>
+                                <div class="impact-desc">Tonnage Tracking</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Systems Architecture -->
+    <section id="systems">
+        <div class="section-header">
+            <div class="section-label">Enterprise Architecture</div>
+            <h2 class="section-title">Integrated Business Ecosystem</h2>
+            <p class="section-subtitle">8+ ERP and business systems unified into a central data warehouse.</p>
+        </div>
+
+        <div class="systems-grid">
+            <div class="system-card" onclick="showSystemDetail('Jonas')">
+                <div class="system-icon">🏗️</div>
+                <div class="system-name">Jonas ERP</div>
+                <div class="system-category">Construction</div>
+            </div>
+            <div class="system-card" onclick="showSystemDetail('HubSpot')">
+                <div class="system-icon">🎯</div>
+                <div class="system-name">HubSpot</div>
+                <div class="system-category">CRM</div>
+            </div>
+            <div class="system-card" onclick="showSystemDetail('Samsara')">
+                <div class="system-icon">📡</div>
+                <div class="system-name">Samsara</div>
+                <div class="system-category">Telematics</div>
+            </div>
+            <div class="system-card" onclick="showSystemDetail('Trux')">
+                <div class="system-icon">🗑️</div>
+                <div class="system-name">TRUX</div>
+                <div class="system-category">Waste Ops</div>
+            </div>
+            <div class="system-card" onclick="showSystemDetail('Fleetio')">
+                <div class="system-icon">🚛</div>
+                <div class="system-name">Fleet.io</div>
+                <div class="system-category">Fleet Mgmt</div>
+            </div>
+            <div class="system-card" onclick="showSystemDetail('NYLUS')">
+                <div class="system-icon">📋</div>
+                <div class="system-name">NYLUS</div>
+                <div class="system-category">Field Service</div>
+            </div>
+            <div class="system-card" onclick="showSystemDetail('Dayforce')">
+                <div class="system-icon">👥</div>
+                <div class="system-name">Dayforce</div>
+                <div class="system-category">HCM</div>
+            </div>
+            <div class="system-card" onclick="showSystemDetail('Copilot')">
+                <div class="system-icon">🤖</div>
+                <div class="system-name">Copilot</div>
+                <div class="system-category">AI Assistant</div>
+            </div>
+        </div>
+
+        <div id="systemDetail" class="system-detail">
+            <h3 id="detailTitle" style="margin-bottom: 1rem;"></h3>
+            <p id="detailDesc" style="color: var(--text-secondary); margin-bottom: 1.5rem;"></p>
+            <div id="detailData"></div>
+        </div>
+    </section>
+
+    <!-- Experience -->
     <section id="experience">
-        <h2 class="section-title">Professional Experience</h2>
-        
+        <div class="section-header">
+            <div class="section-label">Career</div>
+            <h2 class="section-title">Professional Experience</h2>
+        </div>
+
         <div class="timeline">
-            <div class="experience-item">
-                <div class="job-header">
-                    <div class="job-title">Manager, ERP Systems & Data Services</div>
-                    <div class="company">YORK1 – Headquarters</div>
-                    <div class="date">January 2024 – Present</div>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-role">Manager, ERP Systems & Data Services</div>
+                    <div class="timeline-company">YORK1</div>
+                    <div class="timeline-date">2024 — Present</div>
                 </div>
-                <ul class="achievements">
-                    <li>Lead the implementation and ongoing management of <span class="highlight">8+ corporate ERP, business systems, and AI platforms</span> (Jonas, HubSpot, Samsara, Trux, NYLUS, Fleet.io, Dayforce, Microsoft Copilot), consolidating financial, operational, HR, and telematic data into unified data warehouse</li>
-                    <li>Identify opportunities for <span class="highlight">AI and Copilot technologies</span> to improve business productivity, content generation, and automated insights across Microsoft 365 applications</li>
-                    <li>Deliver weekly/monthly/quarterly executive reporting packages analyzing <span class="highlight">KPIs including profitability by company, AR trends, cash collection metrics, payroll KPIs, sales pipelines, DSO/DPO metrics, and backlog tracking</span> to senior leadership</li>
-                    <li>Spearhead <span class="highlight">RPA and AI initiatives</span> to automate data entry processes, reducing manual workload and improving data accuracy across departments</li>
-                    <li>Successfully integrated <span class="highlight">Telematics systems</span> (Samsara & Fleet.io) enabling real-time route efficiency analytics, driver performance metrics, and fleet utilization optimization</li>
-                    <li>Architect and maintain corporate <span class="highlight">SharePoint Intranet</span>, ensuring optimal design, security, availability, and performance</li>
-                    <li>Support <span class="highlight">strategic private equity partnership financing</span> through comprehensive operational and financial data ETLs</li>
-                </ul>
+                <div class="timeline-content">
+                    <ul>
+                        <li>Lead <span class="highlight">8+ corporate ERP and AI platforms</span> consolidating financial, operational, HR, and telematic data into unified warehouse</li>
+                        <li>Architect <span class="highlight">Power BI ecosystem</span> supporting $400M+ revenue with daily operational dashboards and DSO/DPO analytics</li>
+                        <li>Deliver <span class="highlight">monthly reporting packages</span> to Presidents of Infrastructure and Environmental divisions</li>
+                        <li>Implement <span class="highlight">AI and Copilot technologies</span> across Microsoft 365 for productivity automation</li>
+                        <li>Integrate <span class="highlight">Samsara & Fleet.io telematics</span> for real-time route efficiency and driver performance</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="experience-item">
-                <div class="job-header">
-                    <div class="job-title">Senior Business & Financial Analyst</div>
-                    <div class="company">YORK1 – Headquarters</div>
-                    <div class="date">February 2021 – December 2023</div>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-role">Senior Business & Financial Analyst</div>
+                    <div class="timeline-company">YORK1</div>
+                    <div class="timeline-date">2021 — 2023</div>
                 </div>
-                <ul class="achievements">
-                    <li>Spearheaded the <span class="highlight">FY2021 & FY2022 corporate-wide annual budgets</span> collaborating directly with President, CFO, and business line leaders to establish economic targets and revenue projections</li>
-                    <li>Supported <span class="highlight">private equity financing</span> via operational and financial data ETLs and analysis</li>
-                    <li>Coordinated quarterly <span class="highlight">covenant compliance analysis</span> reports with Group Financial Controller and accounting team</li>
-                    <li>Provided direct data ETL support for ERP upgrades, system migrations, and post-acquisition integrations</li>
-                </ul>
+                <div class="timeline-content">
+                    <ul>
+                        <li>Spearheaded <span class="highlight">FY2021 & FY2022 corporate budgets</span> with President, CFO, and business line leaders</li>
+                        <li>Supported <span class="highlight">private equity financing</span> via operational data ETLs and analysis</li>
+                        <li>Managed <span class="highlight">quarterly covenant compliance</span> reporting with Group Financial Controller</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="experience-item">
-                <div class="job-header">
-                    <div class="job-title">Business Analyst</div>
-                    <div class="company">K & K Recycling Services</div>
-                    <div class="date">October 2019 – July 2020</div>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-role">Business Analyst</div>
+                    <div class="timeline-company">K & K Recycling</div>
+                    <div class="timeline-date">2019 — 2020</div>
                 </div>
-                <ul class="achievements">
-                    <li>Analyzed stakeholder business requirements and developed <span class="highlight">interactive dashboards via Microsoft CRM Dynamics and Great Plains</span> integration for executive decision-making</li>
-                    <li>Prepared ad hoc financial reports, Power BI dashboards, and assessments for CFO and Controller</li>
-                    <li>Imported and filtered data from Microsoft CRM Dynamics, Great Plains, SQL Server, and Microsoft Access to verify data currency</li>
-                </ul>
+                <div class="timeline-content">
+                    <ul>
+                        <li>Developed <span class="highlight">interactive dashboards</span> via Microsoft CRM Dynamics and Great Plains</li>
+                        <li>Built Power BI reports and financial assessments for CFO and Controller</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Honors & Awards Section -->
+    <!-- Awards -->
     <section id="awards">
-        <h2 class="section-title">Honors & Awards</h2>
-        
-        <div class="awards-container">
+        <div class="section-header">
+            <div class="section-label">Athletics</div>
+            <h2 class="section-title">Competitive Achievements</h2>
+            <p class="section-subtitle">High-performance background demonstrating discipline, focus, and competitive drive.</p>
+        </div>
+
+        <div class="awards-grid">
             <div class="award-card">
                 <div class="award-header">
-                    <span class="medal-icon">🥋</span>
+                    <span class="award-icon">🥋</span>
                     <div>
-                        <h3 class="award-title">High Performance Athlete - Taekwondo</h3>
-                        <div class="award-issuer">World Taekwondo (WT) - Kukkiwon Headquarters</div>
+                        <div class="award-title">Team Canada — World Championships</div>
+                        <div class="award-org">World Taekwondo Federation</div>
                     </div>
                 </div>
-                <ul class="award-list">
+                <ul class="achievement-list">
                     <li>Ranked Top 32, World Championships</li>
                     <li>3x Canadian National Champion</li>
                     <li>2x National Team Member</li>
-                    <li>7x Provincial Team Member</li>
-                    <li>Canada Open Gold Medalist</li>
-                    <li>Pan Am Open Gold Medalist</li>
-                    <li>U.S. Open Silver Medalist</li>
                     <li>Ranked Top 16, Universiade Games</li>
+                    <li>Canada Open & Pan Am Open Gold Medalist</li>
                 </ul>
-                
-                <div class="article-links">
-                    <h4>Featured Articles</h4>
-                    <a href="https://thevarsity.ca/2016/11/27/kicking-back-learning-life/" target="_blank">The Varsity: Kicking Back & Learning Life</a>
-                    <a href="https://www.taekwondodata.com/andus-yat-hei-lau.aloq.html" target="_blank">Taekwondo Data Profile</a>
-                    <a href="https://www.montreal-taekwondo-association.ca/announcement-composition-teams-participating-qualifying-tournament-olympic-youth-games-2014-world-junior-championships-2014" target="_blank">Montreal TA Competition Announcement</a>
+                <div class="link-list">
+                    <a href="https://www.taekwondodata.com/andus-yat-hei-lau.aloq.html" target="_blank">Profile →</a>
+                    <a href="https://thevarsity.ca/2016/11/27/kicking-back-learning-life/" target="_blank">The Varsity →</a>
+                    <a href="https://mcgillathletics.ca/news/2015/6/12/GEN_0612152351.aspx" target="_blank">McGill →</a>
+                    <a href="https://www.yorkregion.com/news/good-showing-at-taekwondo-tourney/article_9987cfcc-f18a-57ab-8be9-98bd897cc045.html" target="_blank">York Region →</a>
                 </div>
             </div>
 
-            <div class="award-card silver">
+            <div class="award-card">
                 <div class="award-header">
-                    <span class="medal-icon">🏅</span>
+                    <span class="award-icon">🏅</span>
                     <div>
-                        <h3 class="award-title">Quest for Gold Funding</h3>
-                        <div class="award-issuer">Ontario Ministry of Tourism, Culture and Sport</div>
+                        <div class="award-title">Quest for Gold Funding</div>
+                        <div class="award-org">Ontario Ministry of Tourism, Culture and Sport</div>
                     </div>
                 </div>
-                <p style="margin-bottom: 1rem; color: var(--text-dark);">
-                    <strong>Ontario Provincial Card Recipient</strong>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                    Provincial Card Recipient awarded to the <span class="highlight">#1 Ranking Athlete in Ontario</span> 
+                    through the Ontario Taekwondo Association.
                 </p>
-                <p style="color: var(--text-light); font-size: 0.95rem; line-height: 1.6;">
-                    Quest 4 Gold Funding Recipient awarded through Ontario Taekwondo Association (OTA) to the <span class="highlight">#1 Ranking Athlete in Ontario</span>.
+                <p style="color: var(--text-muted); font-size: 0.875rem;">
+                    Competitive highlights include U.S. Open Silver Medalist and 7x Provincial Team Member, 
+                    demonstrating sustained excellence at the highest levels of competition.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
+    <!-- Education -->
     <section id="education">
-        <h2 class="section-title">Education & Qualifications</h2>
-        <div class="education-card">
-            <div class="degree">Bachelor of Commerce, Accounting Specialist, Economics Minor</div>
-            <div class="school">Rotman Commerce, University of Toronto</div>
-            <div class="edu-details">September 2015 – June 2019</div>
-            
-            <div class="languages">
-                <strong>Languages:</strong> English (Professional), Chinese (Cantonese & Mandarin - Native)
-                <br><br>
-                <strong>Athletic Distinction:</strong> Team Canada Taekwondo - World Championships & World University Games Competitor
+        <div class="section-header">
+            <div class="section-label">Education</div>
+            <h2 class="section-title">Academic Background</h2>
+        </div>
+
+        <div class="edu-card">
+            <div class="edu-degree">Bachelor of Commerce, Accounting Specialist, Economics Minor</div>
+            <div class="edu-school">Rotman Commerce, University of Toronto</div>
+            <div class="edu-date">2015 — 2019</div>
+            <div class="edu-meta">
+                <strong>Languages:</strong> English (Professional), Chinese (Cantonese & Mandarin — Native)<br>
+                <strong>Athletics:</strong> Team Canada Taekwondo — World Championships & World University Games
             </div>
         </div>
     </section>
@@ -1185,186 +1103,86 @@
     <!-- Footer -->
     <footer id="contact">
         <div class="footer-content">
-            <h2 style="margin-bottom: 1.5rem;">Let's Connect</h2>
-            <div class="footer-contact">
-                <p style="margin-bottom: 0.5rem;">East Gwillimbury, Ontario</p>
-                <p><a href="tel:+16479939208">(647) 993-9208</a></p>
-                <p><a href="mailto:andusylau@gmail.com">andusylau@gmail.com</a></p>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Andus Lau. Professional Portfolio.</p>
-            </div>
+            <a href="mailto:andusylau@gmail.com" class="footer-email">andusylau@gmail.com</a>
+            <p class="footer-location">East Gwillimbury, Ontario</p>
         </div>
     </footer>
 
     <script>
-        // System Data
         const systemData = {
             'Jonas': {
+                title: 'Jonas ERP',
                 category: 'Construction ERP',
-                description: 'An ERP built for construction companies that combines construction accounting with project/job management (e.g., job costing, budgeting, scheduling, project tracking) in one system.',
-                dataPoints: [
-                    '<strong>Accounting/finance:</strong> general ledger (GL), accounts payable/receivable (AP/AR), invoices, payments, vendor/customer records, financial reporting.',
-                    '<strong>Project & job cost:</strong> jobs/projects, budgets, cost codes, committed costs, actual costs (labor/material/subs), WIP-style tracking, change items.',
-                    '<strong>Project tracking artifacts:</strong> schedules, progress/field reporting, cost tracking, and project documentation tied to jobs.'
-                ]
-            },
-            'Fleetio': {
-                category: 'Fleet Management',
-                description: 'A fleet management platform used to run day-to-day fleet operations—assets/vehicles, maintenance, fuel, inspections, reporting—with optional GPS/telematics integrations.',
-                dataPoints: [
-                    '<strong>Fleet assets:</strong> vehicle/equipment profiles, VIN/specs, assignments (drivers), lifecycle info.',
-                    '<strong>Maintenance:</strong> preventive maintenance schedules, work orders, service history, parts/tires (if used), costs.',
-                    '<strong>Fuel:</strong> fuel transactions (often via card imports), fuel economy/MPG, cost-per-mile analytics, anomaly alerts (theft/mismatch when paired with GPS).',
-                    '<strong>Location/ops telemetry (when integrated):</strong> vehicle location history and activity traces derived from GPS/inspections/fuel/service events.'
-                ]
-            },
-            'Trux': {
-                category: 'Waste & Recycling Operations',
-                description: 'A purpose-built waste and recycling operations system supporting routing, dispatch, billing, AR, operations management, account management, and reporting (often used by haulers for recurring scheduled/on-call services).',
-                dataPoints: [
-                    '<strong>Customer & service master data:</strong> customers, service locations, service types, service frequencies, pricing/rates.',
-                    '<strong>Operations:</strong> routes, schedules, dispatch details, service events/stops, driver/vehicle assignments.',
-                    '<strong>Commercial/financial:</strong> billing/invoices, collections, accounts receivable, operational & financial reports.',
-                    '<em>Industry transition note (common in the market): TRUX capabilities are being integrated into the broader AMCS platform (vendor direction).</em>'
-                ]
+                description: 'Comprehensive construction management platform combining accounting, project costing, and field operations.',
+                data: ['General ledger, AP/AR, financial reporting', 'Job costing, budgets, committed costs', 'Project tracking, schedules, WIP management']
             },
             'HubSpot': {
-                category: 'Customer Platform / CRM',
-                description: 'A customer platform/CRM used to manage contacts and companies, sales pipelines (deals), and sales/marketing/service activities (email tracking, meetings, live chat, etc.).',
-                dataPoints: [
-                    '<strong>CRM core:</strong> contacts, companies, deals/opportunities, tasks/activities, notes.',
-                    '<strong>Communications & engagement:</strong> email tracking/engagement, meeting scheduling, chat interactions (depending on tools enabled).',
-                    '<strong>Marketing/service objects (if using those "hubs"):</strong> campaigns, emails/newsletters, forms, tickets/support interactions, and associated analytics.'
-                ]
+                title: 'HubSpot CRM',
+                category: 'Customer Platform',
+                description: 'Customer relationship management platform for sales pipeline, marketing automation, and service management.',
+                data: ['Contact & company management', 'Deal pipelines & sales forecasting', 'Marketing campaigns & email automation']
             },
             'Samsara': {
-                category: 'Telematics / Connected Operations',
-                description: 'A fleet telematics platform providing GPS tracking for vehicles/assets, ELD compliance, and broader safety/operations tooling; it can also expose telematics data via APIs for integrations.',
-                dataPoints: [
-                    '<strong>Location & trips:</strong> real-time and historical GPS locations, trip traces, routing/dispatch-related telemetry.',
-                    '<strong>Vehicle diagnostics:</strong> onboard diagnostic (OBD/engine) data used for maintenance and operational insights.',
-                    '<strong>Compliance & inspections:</strong> ELD-related compliance data, and (commonly) DVIR/inspection workflows.',
-                    '<strong>Asset model:</strong> records for vehicles, trailers, and equipment (including "assets" objects used by their APIs).'
-                ]
+                title: 'Samsara Telematics',
+                category: 'Connected Operations',
+                description: 'Fleet telematics platform providing real-time GPS tracking, ELD compliance, and vehicle diagnostics.',
+                data: ['Real-time GPS location & trip history', 'Vehicle diagnostics & maintenance alerts', 'ELD compliance & driver safety scores']
+            },
+            'Trux': {
+                title: 'TRUX',
+                category: 'Waste Operations',
+                description: 'Purpose-built waste and recycling operations system for routing, dispatch, and billing.',
+                data: ['Route optimization & dispatch management', 'Service scheduling & billing automation', 'AR management & operational reporting']
+            },
+            'Fleetio': {
+                title: 'Fleet.io',
+                category: 'Fleet Management',
+                description: 'Fleet operations platform managing assets, maintenance, fuel, and inspections.',
+                data: ['Asset lifecycle management', 'Preventive maintenance scheduling', 'Fuel analytics & cost-per-mile tracking']
             },
             'NYLUS': {
-                category: 'Field Operations / FSM',
-                description: 'A field operations / field service management platform aimed at consolidating operational tools into one system—typically covering projects/jobs, dispatch, forms/safety, invoicing, and reporting for field-heavy industries.',
-                dataPoints: [
-                    '<strong>Jobs/projects:</strong> job details, statuses, work performed, project-level rollups and reporting.',
-                    '<strong>Dispatch & scheduling:</strong> dispatch boards, assignments, job calendars, resource/crew allocation.',
-                    '<strong>Field forms & compliance:</strong> digital safety/operational forms (e.g., assessments/manifest-style workflows), compliance tracking, signatures, offline capture with sync.',
-                    '<strong>Billing/invoicing:</strong> captured job data feeding invoicing (often with customer pricebooks/rate logic).'
-                ]
+                title: 'NYLUS',
+                category: 'Field Service Management',
+                description: 'Field operations platform for dispatch, digital forms, safety compliance, and invoicing.',
+                data: ['Digital safety forms & compliance tracking', 'Dispatch boards & crew allocation', 'Mobile field data capture with offline sync']
             },
             'Dayforce': {
-                category: 'HCM Platform',
-                description: 'A cloud HCM ("people platform") that combines HR, payroll, benefits, workforce management (time/scheduling), and talent in a unified system.',
-                dataPoints: [
-                    '<strong>Employee HR records:</strong> employee profiles, job/position data, organizational structure, documents.',
-                    '<strong>Payroll & time:</strong> time punches/timesheets, schedules, pay rules, payroll results, tax-related outputs (as applicable).',
-                    '<strong>Benefits & talent:</strong> benefit elections, performance/talent objects, recruiting/onboarding artifacts (depending on enabled modules).'
-                ]
+                title: 'Dayforce HCM',
+                category: 'Human Capital Management',
+                description: 'Unified HR, payroll, benefits, and workforce management platform.',
+                data: ['Payroll processing & tax management', 'Time tracking & scheduling', 'Benefits administration & talent management']
             },
             'Copilot': {
-                category: 'AI Assistant / Productivity',
-                description: 'Microsoft Copilot is an AI-powered assistant embedded across Microsoft 365 and Windows that uses large language models to help users generate content, summarize information, automate tasks, and provide context-aware recommendations inside Microsoft apps (e.g., Word, Excel, Outlook, Teams). It integrates with your organization\'s M365 data to provide insights and assist with writing, analysis, meetings, and workflows.',
-                dataPoints: [
-                    '<strong>Contextual metadata:</strong> Copilot does not store your actual organization data long-term; instead it uses signals/metadata from your M365 apps—documents, emails, calendar entries, chats—to generate responses.',
-                    '<strong>Email & calendar:</strong> messages, meeting details, invites, replies (used to summarize or draft replies).',
-                    '<strong>Documents & files:</strong> content from Word, Excel, PowerPoint, OneDrive/SharePoint documents you authorize Copilot to read/analyze.',
-                    '<strong>Chat/Teams:</strong> Teams messages and context for generating summaries or suggested responses.',
-                    '<strong>Prompts/usage data:</strong> Logged usage/queries entered to Copilot (for telemetry, product improvements, admin visibility).'
-                ]
+                title: 'Microsoft Copilot',
+                category: 'AI Assistant',
+                description: 'AI-powered productivity assistant integrated across Microsoft 365 applications.',
+                data: ['Content generation & summarization', 'Email & meeting intelligence', 'Context-aware recommendations in M365']
             }
         };
 
-        let activeSystem = null;
-
-        function showSystemInfo(systemKey) {
-            const data = systemData[systemKey];
+        function showSystemDetail(key) {
+            const data = systemData[key];
             if (!data) return;
 
-            document.querySelectorAll('.satellite-system').forEach(el => {
-                el.classList.remove('active');
-            });
-            document.querySelector(`[data-system="${systemKey}"]`).classList.add('active');
-
-            document.getElementById('panelTitle').textContent = systemKey === 'NYLUS' ? 'NYLUS (Nylus Systems)' : 
-                                                               systemKey === 'Fleetio' ? 'Fleetio' : 
-                                                               systemKey === 'Trux' ? 'TRUX' : 
-                                                               systemKey === 'Copilot' ? 'Microsoft Copilot' :
-                                                               systemKey + (systemKey === 'Dayforce' ? '' : ' Software');
-            document.getElementById('panelCategory').textContent = data.category;
-            document.getElementById('panelDescription').textContent = data.description;
-
-            const dataList = document.getElementById('panelDataList');
-            dataList.innerHTML = '';
-            data.dataPoints.forEach(point => {
-                const li = document.createElement('li');
-                li.innerHTML = point;
-                dataList.appendChild(li);
+            // Remove active class from all cards
+            document.querySelectorAll('.system-card').forEach(card => {
+                card.classList.remove('active');
             });
 
-            const panel = document.getElementById('infoPanel');
-            panel.classList.add('show');
-            activeSystem = systemKey;
+            // Add active to clicked
+            event.currentTarget.classList.add('active');
+
+            const detail = document.getElementById('systemDetail');
+            document.getElementById('detailTitle').textContent = data.title;
+            document.getElementById('detailDesc').textContent = data.description;
+            
+            const dataList = document.getElementById('detailData');
+            dataList.innerHTML = '<ul style="list-style: none; color: var(--text-secondary);">' + 
+                data.data.map(item => `<li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: var(--accent);">→</span>${item}</li>`).join('') + 
+                '</ul>';
+
+            detail.classList.add('show');
         }
-
-        function closePanel() {
-            const panel = document.getElementById('infoPanel');
-            panel.classList.remove('show');
-            document.querySelectorAll('.satellite-system').forEach(el => {
-                el.classList.remove('active');
-            });
-            activeSystem = null;
-        }
-
-        function activateHub() {
-            const hub = document.querySelector('.central-hub');
-            hub.style.transform = 'translate(-50%, -50%) scale(1.2)';
-            setTimeout(() => {
-                hub.style.transform = 'translate(-50%, -50%) scale(1)';
-            }, 300);
-            closePanel();
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                animateValue(counter, 0, target, 2000);
-            });
-        });
-
-        function animateValue(obj, start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                obj.innerHTML = Math.floor(progress * (end - start) + start);
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-
-        function animateCounter(element) {
-            const number = element.querySelector('.stat-number');
-            const target = parseInt(number.getAttribute('data-target'));
-            number.innerHTML = '0';
-            animateValue(number, 0, target, 1500);
-        }
-
-        document.addEventListener('click', function(e) {
-            const panel = document.getElementById('infoPanel');
-            const map = document.getElementById('systemMap');
-            if (activeSystem && !map.contains(e.target) && !panel.contains(e.target)) {
-                closePanel();
-            }
-        });
     </script>
 
 </body>
