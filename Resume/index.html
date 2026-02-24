@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andus Lau — ERP Architect & AI Systems Specialist</title>
+    <title>Andus Lau — ERP Systems & Data Services Manager</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
@@ -14,19 +14,21 @@
         }
 
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-card: #161616;
-            --bg-hover: #1c1c1c;
-            --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
-            --border: #27272a;
-            --success: #22c55e;
-            --gradient-start: #3b82f6;
-            --gradient-end: #8b5cf6;
+            --bg-primary: #fafafa;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-muted: #f4f4f5;
+            --text-primary: #18181b;
+            --text-secondary: #52525b;
+            --text-muted: #a1a1aa;
+            --accent: #1e3a5f;
+            --accent-light: #2c5282;
+            --accent-hover: #1e40af;
+            --border: #e4e4e7;
+            --success: #059669;
+            --warning: #d97706;
+            --gradient-start: #1e3a5f;
+            --gradient-end: #3b82f6;
         }
 
         body {
@@ -42,7 +44,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.8);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
@@ -61,15 +63,13 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent);
+            letter-spacing: -0.02em;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
@@ -82,63 +82,70 @@
         }
 
         .nav-links a:hover {
-            color: var(--text-primary);
+            color: var(--accent);
         }
 
         /* Hero Section */
         .hero {
-            min-height: 90vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 6rem 2rem 4rem;
+            padding: 6rem 2rem 3rem;
+            background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
             position: relative;
-            background: radial-gradient(ellipse at top, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(ellipse at top right, rgba(30, 58, 95, 0.05) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .hero-content {
             max-width: 900px;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+            background: rgba(30, 58, 95, 0.1);
+            color: var(--accent);
             padding: 0.5rem 1rem;
             border-radius: 9999px;
             font-size: 0.875rem;
-            color: var(--text-secondary);
+            font-weight: 600;
             margin-bottom: 2rem;
         }
 
-        .hero-badge span {
-            color: var(--accent);
-        }
-
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
+            color: var(--text-primary);
         }
 
         .hero h1 span {
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent);
         }
 
         .hero-subtitle {
             font-size: 1.25rem;
             color: var(--text-secondary);
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto 2rem;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .hero-cta {
@@ -149,8 +156,8 @@
         }
 
         .btn-primary {
-            background: var(--text-primary);
-            color: var(--bg-primary);
+            background: var(--accent);
+            color: white;
             padding: 0.875rem 2rem;
             border-radius: 8px;
             font-weight: 600;
@@ -162,12 +169,13 @@
         }
 
         .btn-primary:hover {
+            background: var(--accent-light);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(30, 58, 95, 0.2);
         }
 
         .btn-secondary {
-            background: transparent;
+            background: white;
             color: var(--text-primary);
             padding: 0.875rem 2rem;
             border-radius: 8px;
@@ -179,8 +187,8 @@
         }
 
         .btn-secondary:hover {
-            background: var(--bg-card);
-            border-color: var(--text-secondary);
+            background: var(--bg-muted);
+            border-color: var(--text-muted);
         }
 
         /* Section Styles */
@@ -192,28 +200,25 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .section-label {
             display: inline-block;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 0.375rem 1rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
             color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
         }
 
         .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
             font-weight: 800;
             margin-bottom: 1rem;
             letter-spacing: -0.02em;
+            color: var(--text-primary);
         }
 
         .section-subtitle {
@@ -228,7 +233,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         .bento-card {
@@ -239,11 +244,13 @@
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .bento-card:hover {
-            border-color: var(--text-secondary);
+            border-color: var(--text-muted);
             transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
         }
 
         .bento-card.large {
@@ -257,20 +264,21 @@
         .card-icon {
             width: 48px;
             height: 48px;
-            background: var(--bg-hover);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
-            border: 1px solid var(--border);
+            color: white;
         }
 
         .card-title {
             font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 0.75rem;
+            color: var(--text-primary);
         }
 
         .card-description {
@@ -287,9 +295,9 @@
         }
 
         .tech-tag {
-            background: var(--bg-hover);
+            background: var(--bg-muted);
             color: var(--text-secondary);
-            padding: 0.25rem 0.75rem;
+            padding: 0.375rem 0.875rem;
             border-radius: 6px;
             font-size: 0.8rem;
             font-weight: 500;
@@ -300,36 +308,37 @@
         .metrics-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            gap: 1rem;
             margin-top: 1.5rem;
         }
 
         .metric-item {
             text-align: center;
-            padding: 1.5rem;
-            background: var(--bg-hover);
+            padding: 1.25rem;
+            background: var(--bg-muted);
             border-radius: 12px;
             border: 1px solid var(--border);
         }
 
         .metric-value {
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 800;
-            color: var(--text-primary);
+            color: var(--accent);
             margin-bottom: 0.25rem;
         }
 
         .metric-label {
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            font-weight: 600;
         }
 
         /* Impact Section */
         .impact-card {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
-            border: 1px solid rgba(34, 197, 94, 0.2);
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.08) 0%, rgba(5, 150, 105, 0.03) 100%);
+            border: 1px solid rgba(5, 150, 105, 0.2);
             border-radius: 16px;
             padding: 2rem;
             margin-top: 1.5rem;
@@ -341,7 +350,8 @@
             gap: 0.75rem;
             margin-bottom: 1rem;
             color: var(--success);
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 1.1rem;
         }
 
         .impact-grid {
@@ -356,7 +366,7 @@
         }
 
         .impact-number {
-            font-size: 2.5rem;
+            font-size: 2.25rem;
             font-weight: 800;
             color: var(--success);
             line-height: 1;
@@ -366,11 +376,12 @@
             font-size: 0.875rem;
             color: var(--text-secondary);
             margin-top: 0.5rem;
+            font-weight: 500;
         }
 
         /* Architecture Diagram */
         .arch-container {
-            background: var(--bg-primary);
+            background: var(--bg-muted);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 1.5rem;
@@ -388,17 +399,18 @@
         }
 
         .arch-box {
-            background: var(--bg-hover);
+            background: white;
             border: 1px solid var(--border);
             border-radius: 6px;
             padding: 0.5rem 1rem;
             color: var(--text-secondary);
+            font-weight: 600;
         }
 
         .arch-box.highlight {
-            background: rgba(59, 130, 246, 0.2);
+            background: var(--accent);
             border-color: var(--accent);
-            color: var(--text-primary);
+            color: white;
         }
 
         .arch-arrow {
@@ -422,22 +434,24 @@
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .system-card:hover {
             border-color: var(--accent);
-            background: var(--bg-hover);
+            background: var(--bg-muted);
+            transform: translateY(-2px);
         }
 
         .system-card.active {
             border-color: var(--accent);
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(30, 58, 95, 0.05);
         }
 
         .system-icon {
             width: 48px;
             height: 48px;
-            background: var(--bg-hover);
+            background: var(--bg-muted);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -448,9 +462,10 @@
         }
 
         .system-name {
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.9rem;
             margin-bottom: 0.25rem;
+            color: var(--text-primary);
         }
 
         .system-category {
@@ -458,6 +473,7 @@
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            font-weight: 600;
         }
 
         .system-detail {
@@ -467,6 +483,7 @@
             padding: 2rem;
             margin-top: 1.5rem;
             display: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
         .system-detail.show {
@@ -497,7 +514,7 @@
 
         .timeline-item {
             position: relative;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             padding-left: 2rem;
         }
 
@@ -508,7 +525,7 @@
             top: 0.5rem;
             width: 12px;
             height: 12px;
-            background: var(--bg-primary);
+            background: white;
             border: 2px solid var(--accent);
             border-radius: 50%;
         }
@@ -521,11 +538,12 @@
             font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 0.25rem;
+            color: var(--text-primary);
         }
 
         .timeline-company {
             color: var(--accent);
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.95rem;
         }
 
@@ -533,11 +551,11 @@
             color: var(--text-muted);
             font-size: 0.875rem;
             margin-top: 0.25rem;
+            font-weight: 500;
         }
 
         .timeline-content ul {
             list-style: none;
-            space-y: 0.75rem;
         }
 
         .timeline-content li {
@@ -546,6 +564,7 @@
             margin-bottom: 0.75rem;
             padding-left: 1.5rem;
             position: relative;
+            line-height: 1.6;
         }
 
         .timeline-content li::before {
@@ -553,11 +572,12 @@
             position: absolute;
             left: 0;
             color: var(--accent);
+            font-weight: 700;
         }
 
         .highlight {
             color: var(--text-primary);
-            font-weight: 500;
+            font-weight: 700;
         }
 
         /* Awards */
@@ -573,11 +593,12 @@
             border-radius: 16px;
             padding: 2rem;
             transition: all 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .award-card:hover {
-            border-color: var(--border);
-            background: var(--bg-hover);
+            border-color: var(--text-muted);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         .award-header {
@@ -595,11 +616,13 @@
             font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 0.25rem;
+            color: var(--text-primary);
         }
 
         .award-org {
             color: var(--text-muted);
             font-size: 0.875rem;
+            font-weight: 500;
         }
 
         .achievement-list {
@@ -629,14 +652,15 @@
         }
 
         .link-list a {
-            color: var(--text-muted);
+            color: var(--accent);
             text-decoration: none;
             font-size: 0.875rem;
-            transition: color 0.3s;
+            font-weight: 600;
+            transition: opacity 0.3s;
         }
 
         .link-list a:hover {
-            color: var(--accent);
+            opacity: 0.7;
         }
 
         /* Education */
@@ -645,23 +669,26 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .edu-degree {
             font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            color: var(--text-primary);
         }
 
         .edu-school {
             color: var(--accent);
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 0.25rem;
         }
 
         .edu-date {
             color: var(--text-muted);
             font-size: 0.875rem;
+            font-weight: 500;
         }
 
         .edu-meta {
@@ -670,6 +697,7 @@
             border-top: 1px solid var(--border);
             color: var(--text-secondary);
             font-size: 0.9rem;
+            line-height: 1.8;
         }
 
         /* Footer */
@@ -677,6 +705,7 @@
             border-top: 1px solid var(--border);
             padding: 3rem 2rem;
             text-align: center;
+            background: white;
         }
 
         .footer-content {
@@ -687,19 +716,21 @@
         .footer-email {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--text-primary);
+            color: var(--accent);
             text-decoration: none;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             display: inline-block;
+            transition: opacity 0.3s;
         }
 
         .footer-email:hover {
-            color: var(--accent);
+            opacity: 0.7;
         }
 
         .footer-location {
             color: var(--text-muted);
             font-size: 0.875rem;
+            font-weight: 500;
         }
 
         /* Responsive */
@@ -711,6 +742,10 @@
             .bento-card.large,
             .bento-card.full {
                 grid-column: span 1;
+            }
+            
+            .bento-card.full > div {
+                grid-template-columns: 1fr !important;
             }
             
             .metrics-row,
@@ -776,11 +811,11 @@
             <div class="hero-badge">
                 <span>●</span> Available for opportunities
             </div>
-            <h1>ERP Architect &<br><span>AI Systems Specialist</span></h1>
+            <h1>ERP Systems &<br><span>Data Services Manager</span></h1>
             <p class="hero-subtitle">
-                Building enterprise data ecosystems and intelligent automation. 
-                Former Team Canada Taekwondo athlete bringing discipline and precision 
-                to complex technical challenges.
+                Strategic systems leader bridging Finance, Operations, and Data Architecture to drive 
+                enterprise-wide digital transformation. Expert in ERP modernization, Azure data platforms, 
+                AI-driven automation, and KPI governance. Former Team Canada Taekwondo athlete.
             </p>
             <div class="hero-cta">
                 <a href="#projects" class="btn-primary">View Projects</a>
@@ -794,7 +829,8 @@
         <div class="section-header">
             <div class="section-label">Technical Projects</div>
             <h2 class="section-title">Production-Grade Systems</h2>
-            <p class="section-subtitle">Real-world implementations demonstrating expertise in AI orchestration, automation architecture, and enterprise integration.</p>
+            <p class="section-subtitle">Real-world implementations demonstrating expertise in AI orchestration, 
+            automation architecture, and enterprise integration.</p>
         </div>
 
         <div class="bento-grid">
@@ -803,13 +839,13 @@
                 <div class="card-icon">🤖</div>
                 <h3 class="card-title">Ansidox — AI Research Assistant</h3>
                 <p class="card-description">
-                    Multi-agent workflow system with intent classification, session memory management, and automated knowledge base integration. 
-                    Features multi-stage approval workflows and smart home voice integration.
+                    Multi-agent workflow system with intent classification, session memory management, and automated 
+                    knowledge base integration. Features multi-stage approval workflows and smart home voice integration.
                 </p>
                 <div class="tech-stack">
                     <span class="tech-tag">n8n</span>
                     <span class="tech-tag">Ollama</span>
-                    <span class="tech-tag">Mistral</span>
+                    <span class="tech-tag">Mistral Nemo</span>
                     <span class="tech-tag">Llama 3.2</span>
                     <span class="tech-tag">Tavily API</span>
                     <span class="tech-tag">Obsidian</span>
@@ -839,8 +875,8 @@
                 <div class="card-icon">📄</div>
                 <h3 class="card-title">Document Intelligence Stack</h3>
                 <p class="card-description">
-                    Self-hosted paperless system with AI-powered metadata extraction, 
-                    automatic tagging, and GPU-accelerated OCR.
+                    Self-hosted paperless system with AI-powered metadata extraction, automatic tagging, 
+                    and vision-based OCR processing.
                 </p>
                 <div class="tech-stack">
                     <span class="tech-tag">Docker</span>
@@ -861,7 +897,7 @@
                     <div class="arch-arrow">↓</div>
                     <div class="arch-layer">
                         <div class="arch-box">AI Tagging</div>
-                        <div class="arch-box">OCR</div>
+                        <div class="arch-box">Vision OCR</div>
                     </div>
                 </div>
             </div>
@@ -873,15 +909,16 @@
                         <div class="card-icon">📊</div>
                         <h3 class="card-title">Enterprise BI Ecosystem</h3>
                         <p class="card-description">
-                            Architected comprehensive reporting infrastructure enabling lean operations 
-                            across 30+ business units. Deliver real-time operational dashboards and 
-                            financial analytics to division presidents.
+                            Architected comprehensive reporting infrastructure enabling lean operations across 30+ business units. 
+                            Deliver real-time operational dashboards and financial analytics to division presidents, enabling 
+                            timely decision-making at the executive level.
                         </p>
                         <div class="tech-stack">
                             <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Azure Data Services</span>
                             <span class="tech-tag">SQL Server</span>
                             <span class="tech-tag">Power Query</span>
-                            <span class="tech-tag">SSMS</span>
+                            <span class="tech-tag">DAX</span>
                         </div>
                     </div>
                     <div class="impact-card">
@@ -890,7 +927,9 @@
                             <span>Operational Excellence</span>
                         </div>
                         <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
-                            Technical solutions enabling timely decision-making across Infrastructure and Environmental divisions through automated reporting packages and self-service analytics.
+                            Technical solutions enabling lean management of a $400M+ enterprise across Infrastructure and 
+                            Environmental divisions. Automated monthly reporting packages for division Presidents ensure 
+                            timely, data-driven strategic decisions.
                         </p>
                         <div class="impact-grid">
                             <div class="impact-stat">
@@ -902,12 +941,12 @@
                                 <div class="impact-desc">Business Units</div>
                             </div>
                             <div class="impact-stat">
-                                <div class="impact-number">2</div>
+                                <div class="impact-number">6</div>
                                 <div class="impact-desc">Person Team</div>
                             </div>
                             <div class="impact-stat">
-                                <div class="impact-number">Daily</div>
-                                <div class="impact-desc">Tonnage Tracking</div>
+                                <div class="impact-number">85%</div>
+                                <div class="impact-desc">Leadership Adoption</div>
                             </div>
                         </div>
                     </div>
@@ -921,7 +960,8 @@
         <div class="section-header">
             <div class="section-label">Enterprise Architecture</div>
             <h2 class="section-title">Integrated Business Ecosystem</h2>
-            <p class="section-subtitle">8+ ERP and business systems unified into a central data warehouse.</p>
+            <p class="section-subtitle">6+ ERP and business systems unified into Azure-based data layers 
+            (Bronze, Silver, Gold architecture).</p>
         </div>
 
         <div class="systems-grid">
@@ -968,7 +1008,7 @@
         </div>
 
         <div id="systemDetail" class="system-detail">
-            <h3 id="detailTitle" style="margin-bottom: 1rem;"></h3>
+            <h3 id="detailTitle" style="margin-bottom: 1rem; color: var(--text-primary);"></h3>
             <p id="detailDesc" style="color: var(--text-secondary); margin-bottom: 1.5rem;"></p>
             <div id="detailData"></div>
         </div>
@@ -985,16 +1025,20 @@
             <div class="timeline-item">
                 <div class="timeline-header">
                     <div class="timeline-role">Manager, ERP Systems & Data Services</div>
-                    <div class="timeline-company">YORK1</div>
-                    <div class="timeline-date">2024 — Present</div>
+                    <div class="timeline-company">YORK1 — Headquarters</div>
+                    <div class="timeline-date">January 2024 — Present</div>
                 </div>
                 <div class="timeline-content">
                     <ul>
-                        <li>Lead <span class="highlight">8+ corporate ERP and AI platforms</span> consolidating financial, operational, HR, and telematic data into unified warehouse</li>
-                        <li>Architect <span class="highlight">Power BI ecosystem</span> supporting $400M+ revenue with daily operational dashboards and DSO/DPO analytics</li>
-                        <li>Deliver <span class="highlight">monthly reporting packages</span> to Presidents of Infrastructure and Environmental divisions</li>
-                        <li>Implement <span class="highlight">AI and Copilot technologies</span> across Microsoft 365 for productivity automation</li>
-                        <li>Integrate <span class="highlight">Samsara & Fleet.io telematics</span> for real-time route efficiency and driver performance</li>
+                        <li>Directed cross-functional team of <span class="highlight">2 Business Analysts and 3 offshore developers</span> to deliver enterprise ERP modernization, data architecture, and automation initiatives</li>
+                        <li>Developed multi-year enterprise systems modernization roadmap aligned with CFO/CEO objectives, consolidating <span class="highlight">6+ ERP platforms into Azure data layers</span> (Bronze, Silver, Gold)</li>
+                        <li>Established enterprise-wide <span class="highlight">data governance and KPI standardization frameworks</span> to enable scalable growth and post-acquisition integration</li>
+                        <li>Increased <span class="highlight">executive dashboard adoption to 85%</span> of leadership team through stakeholder management and standardized KPI governance</li>
+                        <li>Reduced <span class="highlight">reporting cycle time by 40%</span> by building automated nightly ETL pipelines within Azure for financial and operational dashboards</li>
+                        <li>Generated <span class="highlight">$135K+ annual cost savings (3 FTEs)</span> by designing AI-powered invoice processing solution (OCR + LLM Vision) integrated via Power Apps and Logic Apps</li>
+                        <li>Reduced <span class="highlight">manual data entry by 70%</span> through RPA bots and automation pipelines for finance and operations workflows</li>
+                        <li>Improved <span class="highlight">route efficiency and fleet utilization</span> by integrating telematics systems (Samsara & Fleet.io) via API architecture into centralized BI models</li>
+                        <li>Supported <span class="highlight">private equity financing initiatives</span> by designing financial ETL pipelines and covenant reporting models</li>
                     </ul>
                 </div>
             </div>
@@ -1002,14 +1046,16 @@
             <div class="timeline-item">
                 <div class="timeline-header">
                     <div class="timeline-role">Senior Business & Financial Analyst</div>
-                    <div class="timeline-company">YORK1</div>
-                    <div class="timeline-date">2021 — 2023</div>
+                    <div class="timeline-company">YORK1 — Headquarters</div>
+                    <div class="timeline-date">February 2021 — December 2023</div>
                 </div>
                 <div class="timeline-content">
                     <ul>
-                        <li>Spearheaded <span class="highlight">FY2021 & FY2022 corporate budgets</span> with President, CFO, and business line leaders</li>
-                        <li>Supported <span class="highlight">private equity financing</span> via operational data ETLs and analysis</li>
-                        <li>Managed <span class="highlight">quarterly covenant compliance</span> reporting with Group Financial Controller</li>
+                        <li>Led corporate-wide budgeting processes (since FY2021), aligning cross-functional financial planning and <span class="highlight">improving forecast accuracy by 18%</span></li>
+                        <li>Improved operational performance visibility by designing <span class="highlight">standardized KPI data models and Power BI dashboards</span> integrated with ERP systems</li>
+                        <li>Accelerated <span class="highlight">post-acquisition system integrations</span> by developing scalable ETL pipelines and harmonizing financial reporting structures</li>
+                        <li>Strengthened <span class="highlight">covenant compliance reporting</span> by developing automated financial models with accounting leadership</li>
+                        <li>Oversaw business analytics team delivery, <span class="highlight">improving reporting SLA adherence by 25%</span> through structured governance</li>
                     </ul>
                 </div>
             </div>
@@ -1017,13 +1063,28 @@
             <div class="timeline-item">
                 <div class="timeline-header">
                     <div class="timeline-role">Business Analyst</div>
-                    <div class="timeline-company">K & K Recycling</div>
-                    <div class="timeline-date">2019 — 2020</div>
+                    <div class="timeline-company">YORK1</div>
+                    <div class="timeline-date">July 2020 — February 2021</div>
                 </div>
                 <div class="timeline-content">
                     <ul>
-                        <li>Developed <span class="highlight">interactive dashboards</span> via Microsoft CRM Dynamics and Great Plains</li>
-                        <li>Built Power BI reports and financial assessments for CFO and Controller</li>
+                        <li>Built executive-level Power BI dashboards that <span class="highlight">reduced manual reporting effort by 50%</span> through automated refresh pipelines</li>
+                        <li>Identified operational inefficiencies and <span class="highlight">reduced process bottlenecks by 20%</span> through business process re-engineering</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-role">Business Analyst</div>
+                    <div class="timeline-company">K & K Recycling Services</div>
+                    <div class="timeline-date">October 2019 — July 2020</div>
+                </div>
+                <div class="timeline-content">
+                    <ul>
+                        <li>Improved <span class="highlight">executive decision-making speed</span> by developing real-time CRM (Dynamics) and Great Plains dashboard integrations via SQL and Power BI</li>
+                        <li>Increased data reliability by implementing data validation controls and standardized reporting frameworks</li>
+                        <li>Reduced reporting preparation time by 30% through advanced Excel automation (Power Query, Macros)</li>
                     </ul>
                 </div>
             </div>
@@ -1070,11 +1131,11 @@
                         <div class="award-org">Ontario Ministry of Tourism, Culture and Sport</div>
                     </div>
                 </div>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
                     Provincial Card Recipient awarded to the <span class="highlight">#1 Ranking Athlete in Ontario</span> 
                     through the Ontario Taekwondo Association.
                 </p>
-                <p style="color: var(--text-muted); font-size: 0.875rem;">
+                <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6;">
                     Competitive highlights include U.S. Open Silver Medalist and 7x Provincial Team Member, 
                     demonstrating sustained excellence at the highest levels of competition.
                 </p>
@@ -1092,10 +1153,10 @@
         <div class="edu-card">
             <div class="edu-degree">Bachelor of Commerce, Accounting Specialist, Economics Minor</div>
             <div class="edu-school">Rotman Commerce, University of Toronto</div>
-            <div class="edu-date">2015 — 2019</div>
+            <div class="edu-date">September 2015 — June 2019</div>
             <div class="edu-meta">
-                <strong>Languages:</strong> English (Professional), Chinese (Cantonese & Mandarin — Native)<br>
-                <strong>Athletics:</strong> Team Canada Taekwondo — World Championships & World University Games
+                <strong>Languages:</strong> English (Professional), Cantonese & Mandarin (Native)<br>
+                <strong>Athletics:</strong> Team Canada Taekwondo — World Championships & World University Games Competitor
             </div>
         </div>
     </section>
@@ -1164,12 +1225,10 @@
             const data = systemData[key];
             if (!data) return;
 
-            // Remove active class from all cards
             document.querySelectorAll('.system-card').forEach(card => {
                 card.classList.remove('active');
             });
 
-            // Add active to clicked
             event.currentTarget.classList.add('active');
 
             const detail = document.getElementById('systemDetail');
@@ -1178,7 +1237,7 @@
             
             const dataList = document.getElementById('detailData');
             dataList.innerHTML = '<ul style="list-style: none; color: var(--text-secondary);">' + 
-                data.data.map(item => `<li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: var(--accent);">→</span>${item}</li>`).join('') + 
+                data.data.map(item => `<li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: var(--accent); font-weight: 700;">→</span>${item}</li>`).join('') + 
                 '</ul>';
 
             detail.classList.add('show');
